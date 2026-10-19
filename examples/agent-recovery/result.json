@@ -1,0 +1,112 @@
+{
+  "evidence_type": "local_sqlite_process_crash_experiment",
+  "fictional": true,
+  "real_external_effects": 0,
+  "model_calls": 0,
+  "scenarios": [
+    {
+      "mode": "naive",
+      "runs": [
+        {
+          "exit_code": 23,
+          "events": [
+            {
+              "event": "effect_committed",
+              "receipt": 1,
+              "operation_key": null
+            },
+            {
+              "event": "crash_after_provider_commit_before_checkpoint"
+            }
+          ]
+        },
+        {
+          "exit_code": 0,
+          "events": [
+            {
+              "event": "effect_committed",
+              "receipt": 2,
+              "operation_key": null
+            },
+            {
+              "event": "workflow_complete",
+              "receipt": 2
+            }
+          ]
+        },
+        {
+          "exit_code": 0,
+          "events": [
+            {
+              "event": "already_complete"
+            }
+          ]
+        }
+      ],
+      "effect_count": 2,
+      "effects": [
+        {
+          "receipt": 1,
+          "operation_key": null,
+          "payload": "{\"article\": \"KB-1042\", \"summary\": \"AtlasDesk v2 E1042: use batches of at most 5000 rows.\"}"
+        },
+        {
+          "receipt": 2,
+          "operation_key": null,
+          "payload": "{\"article\": \"KB-1042\", \"summary\": \"AtlasDesk v2 E1042: use batches of at most 5000 rows.\"}"
+        }
+      ],
+      "final_step": "complete"
+    },
+    {
+      "mode": "safe",
+      "runs": [
+        {
+          "exit_code": 23,
+          "events": [
+            {
+              "event": "effect_committed",
+              "receipt": 1,
+              "operation_key": "fictional-tenant:support-summary-1042:save-summary:v1"
+            },
+            {
+              "event": "crash_after_provider_commit_before_checkpoint"
+            }
+          ]
+        },
+        {
+          "exit_code": 0,
+          "events": [
+            {
+              "event": "reconciled_existing_receipt",
+              "receipt": 1,
+              "operation_key": "fictional-tenant:support-summary-1042:save-summary:v1"
+            },
+            {
+              "event": "workflow_complete",
+              "receipt": 1
+            }
+          ]
+        },
+        {
+          "exit_code": 0,
+          "events": [
+            {
+              "event": "already_complete"
+            }
+          ]
+        }
+      ],
+      "effect_count": 1,
+      "effects": [
+        {
+          "receipt": 1,
+          "operation_key": "fictional-tenant:support-summary-1042:save-summary:v1",
+          "payload": "{\"article\": \"KB-1042\", \"summary\": \"AtlasDesk v2 E1042: use batches of at most 5000 rows.\"}"
+        }
+      ],
+      "final_step": "complete"
+    }
+  ],
+  "limits": "Provider store is local SQLite; not a distributed exactly-once proof. No timeout, concurrent retry, expiry or provider outage is modeled."
+}

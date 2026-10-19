@@ -1,0 +1,204 @@
+{
+  "evidence_type": "deterministic_toy_experiment",
+  "embedding_model": null,
+  "reranker_model": null,
+  "generated_answers": false,
+  "summary": {
+    "answerable_questions": 5,
+    "dense_hit_at_1": 4,
+    "rrf_recall_at_3": 5,
+    "policy_correct_answerable": 5,
+    "unanswerable_questions": 2
+  },
+  "results": [
+    {
+      "id": "Q1",
+      "question": "How do I resolve AtlasDesk v2 export error E1042?",
+      "gold_document": "D2",
+      "dense_top3": [
+        "D1",
+        "D7",
+        "D4"
+      ],
+      "lexical_top3": [
+        "D2",
+        "D4",
+        "D1"
+      ],
+      "rrf_top3": [
+        "D1",
+        "D2",
+        "D4"
+      ],
+      "policy_selected": "D2",
+      "extractive_answer": "AtlasDesk v2 export error E1042: split exports above 5000 rows into batches of at most 5000 rows. Increasing the timeout does not resolve this version's row limit.",
+      "dense_hit_at_1": false,
+      "rrf_recall_at_3": true,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": false,
+      "candidate_loss": false
+    },
+    {
+      "id": "Q2",
+      "question": "What should I do about HarborCRM v2 export error E1042?",
+      "gold_document": "D4",
+      "dense_top3": [
+        "D4",
+        "D7",
+        "D1"
+      ],
+      "lexical_top3": [
+        "D4",
+        "D1",
+        "D2"
+      ],
+      "rrf_top3": [
+        "D4",
+        "D1",
+        "D7"
+      ],
+      "policy_selected": "D4",
+      "extractive_answer": "HarborCRM v2 export error E1042: reconnect the storage destination. AtlasDesk instructions do not apply to HarborCRM.",
+      "dense_hit_at_1": true,
+      "rrf_recall_at_3": true,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": true,
+      "candidate_loss": false
+    },
+    {
+      "id": "Q3",
+      "question": "Who can fix AtlasDesk v2 sign-in error E2041?",
+      "gold_document": "D3",
+      "dense_top3": [
+        "D3",
+        "D2",
+        "D4"
+      ],
+      "lexical_top3": [
+        "D3",
+        "D1",
+        "D2"
+      ],
+      "rrf_top3": [
+        "D3",
+        "D2",
+        "D1"
+      ],
+      "policy_selected": "D3",
+      "extractive_answer": "AtlasDesk v2 sign-in error E2041: ask the workspace administrator to renew the expired SSO certificate, then retry sign-in.",
+      "dense_hit_at_1": true,
+      "rrf_recall_at_3": true,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": true,
+      "candidate_loss": false
+    },
+    {
+      "id": "Q4",
+      "question": "Should I pay the AtlasDesk v2 duplicate invoice INV-204 twice?",
+      "gold_document": "D5",
+      "dense_top3": [
+        "D5",
+        "D1",
+        "D2"
+      ],
+      "lexical_top3": [
+        "D5",
+        "D1",
+        "D2"
+      ],
+      "rrf_top3": [
+        "D5",
+        "D1",
+        "D2"
+      ],
+      "policy_selected": "D5",
+      "extractive_answer": "AtlasDesk v2 billing duplicate invoice INV-204: do not pay twice. Give both invoice references to the billing administrator for reconciliation.",
+      "dense_hit_at_1": true,
+      "rrf_recall_at_3": true,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": true,
+      "candidate_loss": false
+    },
+    {
+      "id": "Q5",
+      "question": "How do I fix AtlasDesk v2 CSV import error I3090?",
+      "gold_document": "D6",
+      "dense_top3": [
+        "D6",
+        "D1",
+        "D2"
+      ],
+      "lexical_top3": [
+        "D6",
+        "D4",
+        "D1"
+      ],
+      "rrf_top3": [
+        "D6",
+        "D1",
+        "D4"
+      ],
+      "policy_selected": "D6",
+      "extractive_answer": "AtlasDesk v2 import error I3090: save the CSV file as UTF-8 and include the required customer_id column before retrying the import.",
+      "dense_hit_at_1": true,
+      "rrf_recall_at_3": true,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": true,
+      "candidate_loss": false
+    },
+    {
+      "id": "Q6",
+      "question": "How do I enable biometric login in AtlasDesk v9?",
+      "gold_document": null,
+      "dense_top3": [
+        "D3",
+        "D2",
+        "D4"
+      ],
+      "lexical_top3": [
+        "D3",
+        "D4",
+        "D5"
+      ],
+      "rrf_top3": [
+        "D3",
+        "D4",
+        "D2"
+      ],
+      "policy_selected": null,
+      "extractive_answer": "INSUFFICIENT_EVIDENCE",
+      "dense_hit_at_1": false,
+      "rrf_recall_at_3": false,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": false,
+      "candidate_loss": false
+    },
+    {
+      "id": "Q7",
+      "question": "How do I fix AtlasDesk v2 export error E9999?",
+      "gold_document": null,
+      "dense_top3": [
+        "D1",
+        "D7",
+        "D4"
+      ],
+      "lexical_top3": [
+        "D4",
+        "D1",
+        "D2"
+      ],
+      "rrf_top3": [
+        "D1",
+        "D4",
+        "D2"
+      ],
+      "policy_selected": null,
+      "extractive_answer": "INSUFFICIENT_EVIDENCE",
+      "dense_hit_at_1": false,
+      "rrf_recall_at_3": false,
+      "policy_correct": true,
+      "rrf_top1_contains_gold": false,
+      "candidate_loss": false
+    }
+  ]
+}

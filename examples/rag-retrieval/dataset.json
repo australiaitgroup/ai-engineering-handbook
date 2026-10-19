@@ -1,0 +1,191 @@
+{
+  "language": "en",
+  "fictional": true,
+  "vector_provenance": "Hand-authored four-dimensional teaching vectors; not model embeddings. Dimensions loosely represent export, identity, billing and import.",
+  "documents": [
+    {
+      "id": "D1",
+      "product": "AtlasDesk",
+      "version": "1",
+      "status": "archived",
+      "text": "AtlasDesk v1 export error E1042: increase the export timeout to 120 seconds. This instruction is archived and must not be applied to v2.",
+      "teaching_vector": [
+        1,
+        0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "D2",
+      "product": "AtlasDesk",
+      "version": "2",
+      "status": "current",
+      "text": "AtlasDesk v2 export error E1042: split exports above 5000 rows into batches of at most 5000 rows. Increasing the timeout does not resolve this version's row limit.",
+      "teaching_vector": [
+        0.9,
+        0.3,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "D3",
+      "product": "AtlasDesk",
+      "version": "2",
+      "status": "current",
+      "text": "AtlasDesk v2 sign-in error E2041: ask the workspace administrator to renew the expired SSO certificate, then retry sign-in.",
+      "teaching_vector": [
+        0.05,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "D4",
+      "product": "HarborCRM",
+      "version": "2",
+      "status": "current",
+      "text": "HarborCRM v2 export error E1042: reconnect the storage destination. AtlasDesk instructions do not apply to HarborCRM.",
+      "teaching_vector": [
+        1,
+        0.05,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "D5",
+      "product": "AtlasDesk",
+      "version": "2",
+      "status": "current",
+      "text": "AtlasDesk v2 billing duplicate invoice INV-204: do not pay twice. Give both invoice references to the billing administrator for reconciliation.",
+      "teaching_vector": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "D6",
+      "product": "AtlasDesk",
+      "version": "2",
+      "status": "current",
+      "text": "AtlasDesk v2 import error I3090: save the CSV file as UTF-8 and include the required customer_id column before retrying the import.",
+      "teaching_vector": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "D7",
+      "product": "AtlasDesk",
+      "version": "3",
+      "status": "draft",
+      "text": "AtlasDesk v3 export error E1042 draft proposal: automatic pagination may remove the manual batch requirement. This feature is not released.",
+      "teaching_vector": [
+        1,
+        0.02,
+        0,
+        0
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "How do I resolve AtlasDesk v2 export error E1042?",
+      "product": "AtlasDesk",
+      "version": "2",
+      "teaching_vector": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "gold_document": "D2"
+    },
+    {
+      "id": "Q2",
+      "question": "What should I do about HarborCRM v2 export error E1042?",
+      "product": "HarborCRM",
+      "version": "2",
+      "teaching_vector": [
+        1,
+        0.05,
+        0,
+        0
+      ],
+      "gold_document": "D4"
+    },
+    {
+      "id": "Q3",
+      "question": "Who can fix AtlasDesk v2 sign-in error E2041?",
+      "product": "AtlasDesk",
+      "version": "2",
+      "teaching_vector": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "gold_document": "D3"
+    },
+    {
+      "id": "Q4",
+      "question": "Should I pay the AtlasDesk v2 duplicate invoice INV-204 twice?",
+      "product": "AtlasDesk",
+      "version": "2",
+      "teaching_vector": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "gold_document": "D5"
+    },
+    {
+      "id": "Q5",
+      "question": "How do I fix AtlasDesk v2 CSV import error I3090?",
+      "product": "AtlasDesk",
+      "version": "2",
+      "teaching_vector": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "gold_document": "D6"
+    },
+    {
+      "id": "Q6",
+      "question": "How do I enable biometric login in AtlasDesk v9?",
+      "product": "AtlasDesk",
+      "version": "9",
+      "teaching_vector": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "gold_document": null
+    },
+    {
+      "id": "Q7",
+      "question": "How do I fix AtlasDesk v2 export error E9999?",
+      "product": "AtlasDesk",
+      "version": "2",
+      "teaching_vector": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "gold_document": null
+    }
+  ]
+}

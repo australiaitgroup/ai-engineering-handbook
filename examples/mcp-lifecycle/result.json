@@ -1,0 +1,262 @@
+{
+  "evidence_type": "offline_simulator",
+  "protocol_reference": "2025-11-25",
+  "session_mode": "stateless; no MCP-Session-Id assigned",
+  "real_network_requests": 0,
+  "transcript": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "https://mcp.example.invalid/mcp",
+        "headers": {
+          "Accept": "application/json, text/event-stream",
+          "Content-Type": "application/json",
+          "Origin": "https://client.example.invalid",
+          "Authorization": "Bearer FICTIONAL-NOT-A-TOKEN"
+        },
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "initialize",
+          "id": 1,
+          "params": {
+            "protocolVersion": "2025-11-25",
+            "capabilities": {},
+            "clientInfo": {
+              "name": "offline-review",
+              "version": "1.0"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "jsonrpc": "2.0",
+          "id": 1,
+          "result": {
+            "protocolVersion": "2025-11-25",
+            "capabilities": {
+              "tools": {}
+            },
+            "serverInfo": {
+              "name": "fictional-support",
+              "version": "1.0"
+            }
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json, text/event-stream",
+          "Content-Type": "application/json",
+          "Origin": "https://client.example.invalid",
+          "Authorization": "Bearer FICTIONAL-NOT-A-TOKEN",
+          "MCP-Protocol-Version": "2025-11-25"
+        },
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "notifications/initialized"
+        },
+        "url": "https://mcp.example.invalid/mcp"
+      },
+      "response": {
+        "status": 202,
+        "body": null
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json, text/event-stream",
+          "Content-Type": "application/json",
+          "Origin": "https://client.example.invalid",
+          "Authorization": "Bearer FICTIONAL-NOT-A-TOKEN",
+          "MCP-Protocol-Version": "2025-11-25"
+        },
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "tools/list",
+          "id": 2
+        },
+        "url": "https://mcp.example.invalid/mcp"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "result": {
+            "tools": [
+              {
+                "name": "lookup_article",
+                "description": "Read a fictional support article.",
+                "inputSchema": {
+                  "type": "object",
+                  "properties": {
+                    "article_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "article_id"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "headers": {
+          "Accept": "application/json, text/event-stream",
+          "Content-Type": "application/json",
+          "Origin": "https://client.example.invalid",
+          "Authorization": "Bearer FICTIONAL-NOT-A-TOKEN",
+          "MCP-Protocol-Version": "2025-11-25"
+        },
+        "body": {
+          "jsonrpc": "2.0",
+          "method": "tools/call",
+          "id": 3,
+          "params": {
+            "name": "lookup_article",
+            "arguments": {
+              "article_id": "KB-1042"
+            }
+          }
+        },
+        "url": "https://mcp.example.invalid/mcp"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "jsonrpc": "2.0",
+          "id": 3,
+          "result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Split AtlasDesk v2 exports into batches of at most 5000 rows."
+              }
+            ],
+            "isError": false
+          }
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "headers": {
+          "Accept": "text/event-stream",
+          "Origin": "https://client.example.invalid",
+          "Authorization": "Bearer FICTIONAL-NOT-A-TOKEN",
+          "MCP-Protocol-Version": "2025-11-25"
+        },
+        "url": "https://mcp.example.invalid/mcp"
+      },
+      "response": {
+        "status": 405,
+        "body": null
+      }
+    }
+  ],
+  "policy_cases": [
+    {
+      "scenario": "read_ok",
+      "status": 200,
+      "reason": "allowed_simulated",
+      "checks": [
+        "origin",
+        "authentication",
+        "audience",
+        "lifecycle",
+        "scope"
+      ],
+      "tool_executed": true,
+      "result": {
+        "article_id": "KB-1042",
+        "text": "Split AtlasDesk v2 exports into batches of at most 5000 rows."
+      }
+    },
+    {
+      "scenario": "session_id_without_token",
+      "status": 401,
+      "reason": "missing_token",
+      "checks": [
+        "origin",
+        "authentication"
+      ],
+      "tool_executed": false
+    },
+    {
+      "scenario": "wrong_audience",
+      "status": 401,
+      "reason": "wrong_audience",
+      "checks": [
+        "origin",
+        "authentication",
+        "audience"
+      ],
+      "tool_executed": false
+    },
+    {
+      "scenario": "read_token_cannot_delete",
+      "status": 403,
+      "reason": "insufficient_scope",
+      "checks": [
+        "origin",
+        "authentication",
+        "audience",
+        "lifecycle",
+        "scope"
+      ],
+      "tool_executed": false
+    },
+    {
+      "scenario": "write_scope_without_confirmation",
+      "status": 403,
+      "reason": "confirmation_required_application_policy",
+      "checks": [
+        "origin",
+        "authentication",
+        "audience",
+        "lifecycle",
+        "scope",
+        "human_confirmation"
+      ],
+      "tool_executed": false
+    },
+    {
+      "scenario": "untrusted_origin",
+      "status": 403,
+      "reason": "untrusted_origin",
+      "checks": [
+        "origin"
+      ],
+      "tool_executed": false
+    },
+    {
+      "scenario": "call_before_initialize",
+      "status": 400,
+      "reason": "not_initialized_application_policy",
+      "checks": [
+        "origin",
+        "authentication",
+        "audience",
+        "lifecycle"
+      ],
+      "tool_executed": false
+    }
+  ]
+}
